@@ -1,0 +1,12 @@
+C:\desenvolvimento\TCCFyi\CustomizacaoDynamics\PluginIntegacao\bin\Debug\PluginIntegracao.dll.config
+C:\desenvolvimento\TCCFyi\CustomizacaoDynamics\PluginIntegacao\bin\Debug\PluginIntegracao.dll
+C:\desenvolvimento\TCCFyi\CustomizacaoDynamics\PluginIntegacao\bin\Debug\PluginIntegracao.pdb
+C:\desenvolvimento\TCCFyi\CustomizacaoDynamics\PluginIntegacao\bin\Debug\Microsoft.Xrm.Tooling.Connector.dll
+C:\desenvolvimento\TCCFyi\CustomizacaoDynamics\PluginIntegacao\bin\Debug\Newtonsoft.Json.dll
+C:\desenvolvimento\TCCFyi\CustomizacaoDynamics\PluginIntegacao\bin\Debug\Microsoft.Xrm.Tooling.Connector.xml
+C:\desenvolvimento\TCCFyi\CustomizacaoDynamics\PluginIntegacao\bin\Debug\Newtonsoft.Json.xml
+C:\desenvolvimento\TCCFyi\CustomizacaoDynamics\PluginIntegacao\obj\Debug\PluginIntegracao.csproj.CoreCompileInputs.cache
+C:\desenvolvimento\TCCFyi\CustomizacaoDynamics\PluginIntegacao\obj\Debug\PluginIntegracao.csproj.CopyComplete
+C:\desenvolvimento\TCCFyi\CustomizacaoDynamics\PluginIntegacao\obj\Debug\PluginIntegracao.dll
+C:\desenvolvimento\TCCFyi\CustomizacaoDynamics\PluginIntegacao\obj\Debug\PluginIntegracao.pdb
+C:\desenvolvimento\TCCFyi\CustomizacaoDynamics\PluginIntegacao\obj\Debug\PluginIntegracao.csprojAssemblyReference.cache
