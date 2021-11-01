@@ -142,8 +142,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountCustom.cs" />
+    <Compile Include="OpportunityDisabled.cs" />
+    <Compile Include="ProductDisabled.cs" />
     <Compile Include="ConnectionFactory.cs" />
     <Compile Include="ContactCustom.cs" />
+    <Compile Include="ImportOpportunity.cs" />
     <Compile Include="NotificacaoCustom.cs" />
     <Compile Include="OpportunityCustom.cs" />
     <Compile Include="PluginImplementation.cs" />

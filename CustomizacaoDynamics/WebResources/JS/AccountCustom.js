@@ -46,7 +46,7 @@ Dynamics.Account = {
                 formContext.getAttribute(Dynamics.Account.Attributes.JRCV_CNPJ).setValue(cnpj);                
             } else {
                 formContext.getAttribute(Dynamics.Account.Attributes.JRCV_CNPJ).setValue("");
-                this.this.CustomAlert("Por favor, digite um CNPJ valido", "Erro de Validação de CNPJ");
+                this.CustomAlert("Por favor, digite um CNPJ valido", "Erro de Validação de CNPJ");
             }   
         }
     },

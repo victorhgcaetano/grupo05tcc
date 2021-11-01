@@ -129,6 +129,12 @@
   <ItemGroup>
     <Folder Include="Model\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PluginIntegacao\PluginIntegracao.csproj">
+      <Project>{4b596341-a2a8-46aa-be8a-78b3a530957a}</Project>
+      <Name>PluginIntegracao</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

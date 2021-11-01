@@ -12,27 +12,31 @@ namespace PluginIntegracao
 
     public class UptadeProduct : PluginImplementation
     {
-        public string TableName = "product";
+        private string TableName = "product";
 
         public override void ExecutePlugin(IServiceProvider serviceProvider)
         {
-            if (Context.MessageName == "Create")
+            try
             {
-                CreateProduct();
+                if (this.Context.MessageName == "Create")
+                {
+                    CreateProduct();
+                }
+                else if (Context.MessageName == "Update")
+                {
+                    UpdateProducts();
 
+                }
+                else if (Context.MessageName == "Delete")
+                {
+                    DeleteProduct();
+
+                }
             }
-
-            else if (Context.MessageName == "Update")
+            catch(Exception e)
             {
-                UpdateProducts();
-
-            }
-            else if (Context.MessageName == "Delete")
-            {
-                DeleteProduct();
-
-            }
-
+                throw new InvalidPluginExecutionException("Erro ao sincronizar Dynamics: " + e.Message);
+            }            
         }
 
         private void DeleteProduct()
@@ -58,49 +62,34 @@ namespace PluginIntegracao
         private void UpdateProducts()
         {
             //FUNÇÃO PARA ATUALIZAR DOS PRODUTOS
-            Entity preProductImage = Context.PreEntityImages["PreImage"];
-            string productName = preProductImage["name"].ToString();
+            Entity postProductImage = Context.PostEntityImages["PostImage"];            
+            string productName = postProductImage["name"].ToString();            
 
             IOrganizationService service = ConnectionFactory.GetCrmServiceDynamics2();
 
             EntityCollection RetrieveProductId = RetrieveProduct(productName);
-            //CHAMAR FUNÇÃO PARA PEGAR O ID DO PRODUTO DO DYNAMICS2 
-
+            ////CHAMAR FUNÇÃO PARA PEGAR O ID DO PRODUTO DO DYNAMICS2 
+            
             foreach (Entity RetrieveProductsId in RetrieveProductId.Entities)
             {
                 Guid productId = (Guid)RetrieveProductsId["productid"];
                 Entity UpdateProduct = new Entity(TableName);
                 UpdateProduct.Id = productId;
-                UpdateProduct["name"] = preProductImage["name"];
-                UpdateProduct["jrcv_categoriadasvagas"] = (OptionSetValue)preProductImage["jrcv_categoriadasvagas"];
-                UpdateProduct["jrcv_numerodecandidatos"] = preProductImage["jrcv_numerodecandidatos"];
-                UpdateProduct["jrcv_valordotreinamento"] = (Money)preProductImage["jrcv_valordotreinamento"];
-
+                UpdateProduct["name"] = postProductImage["name"];
+                UpdateProduct["jrcv_categoriadasvagas"] = postProductImage["jrcv_categoriadasvagas"];
+                UpdateProduct["jrcv_numerodecandidatos"] = postProductImage["jrcv_numerodecandidatos"];
+                UpdateProduct["jrcv_valordotreinamento"] = postProductImage["jrcv_valordotreinamento"];
+            
                 service.Update(UpdateProduct);
-            }
+            }           
         }
         private void CreateProduct()
         {
             //FUNÇÃO PARA CRIAR PRODUTOS NO DYNAMICS2
             Entity product = (Entity)this.Context.InputParameters["Target"];
-
-            string productName = product.Contains("name") ? product["name"].ToString() : string.Empty;
-            OptionSetValue categoriaDasVagas = product.Contains("jrcv_categoriadasvagas") ?
-                (OptionSetValue)product["jrcv_categoriadasvagas"] : null;
-            int numeroDeCandidatos = product.Contains("jrcv_numerodecandidatos") ? (int)product["jrcv_numerodecandidatos"] : 0;
-            Money valorDoTreinamento = product.Contains("jrcv_valordotreinamento") ? (Money)product["jrcv_valordotreinamento"] : null;
-
-            //RETRIEVE DOS ITENS VIA PLUGIN (TARGET)
-
-            IOrganizationService service = ConnectionFactory.GetCrmServiceDynamics2();
-
-            Entity createProduct = new Entity(TableName);
-            createProduct["name"] = productName;
-            createProduct["jrcv_categoriadasvagas"] = categoriaDasVagas;
-            createProduct["jrcv_numerodecandidatos"] = numeroDeCandidatos;
-            createProduct["jrcv_valordotreinamento"] = valorDoTreinamento;
+            IOrganizationService service = ConnectionFactory.GetCrmServiceDynamics2();          
+            service.Create(product);
             
-            service.Create(createProduct);
         }
 
         private EntityCollection RetrieveProduct(string name)

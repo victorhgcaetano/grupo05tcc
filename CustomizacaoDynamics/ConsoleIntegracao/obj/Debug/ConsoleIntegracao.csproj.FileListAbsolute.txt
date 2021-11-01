@@ -41,3 +41,6 @@ C:\desenvolvimento\TCCFyi\CustomizacaoDynamics\ConsoleIntegracao\obj\Debug\Conso
 C:\desenvolvimento\TCCFyi\CustomizacaoDynamics\ConsoleIntegracao\obj\Debug\ConsoleIntegracao.csproj.CopyComplete
 C:\desenvolvimento\TCCFyi\CustomizacaoDynamics\ConsoleIntegracao\obj\Debug\ConsoleIntegracao.exe
 C:\desenvolvimento\TCCFyi\CustomizacaoDynamics\ConsoleIntegracao\obj\Debug\ConsoleIntegracao.pdb
+C:\desenvolvimento\TCCFyi\CustomizacaoDynamics\ConsoleIntegracao\bin\Debug\PluginIntegracao.dll
+C:\desenvolvimento\TCCFyi\CustomizacaoDynamics\ConsoleIntegracao\bin\Debug\PluginIntegracao.pdb
+C:\desenvolvimento\TCCFyi\CustomizacaoDynamics\ConsoleIntegracao\bin\Debug\PluginIntegracao.dll.config

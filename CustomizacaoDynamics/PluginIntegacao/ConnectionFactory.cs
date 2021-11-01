@@ -35,6 +35,7 @@ namespace PluginIntegracao
                 "RedirectUri=app://58145B91-0C36-4500-8554-080854F2AC97;";
 
             CrmServiceClient crmServiceClient = new CrmServiceClient(connectionString);
+
             return crmServiceClient.OrganizationWebProxyClient;
         }
     }

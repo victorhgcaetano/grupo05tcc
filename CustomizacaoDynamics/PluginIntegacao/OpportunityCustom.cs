@@ -12,19 +12,9 @@ namespace PluginIntegracao
     {
         public override void ExecutePlugin(IServiceProvider serviceProvider)
         {
-            Entity opportunity = GetOpportunityEntity(this.Context);
-            //Entity opportunity = (Entity)this.Context.InputParameters["Target"];
-            //opportunity["jrcv_codigodaoportunidade"] = GetNextCode(this.Service);   
-            SetCode(this.Context, this.Service, opportunity);
-
-        }
-
-        private static void SetCode(IPluginExecutionContext context, IOrganizationService service, Entity opportunity)
-        {
-            if (context.MessageName == "Create")
-            {
-                opportunity["jrcv_codigodaoportunidade"] = GetNextCode(service);
-            }
+            Entity opportunity = (Entity)this.Context.InputParameters["Target"];
+            if (!opportunity.Contains("jrcv_codigodaoportunidade"))
+                opportunity["jrcv_codigodaoportunidade"] = GetNextCode(this.Service);            
         }
 
         private static string GetNextCode(IOrganizationService service)
@@ -37,8 +27,8 @@ namespace PluginIntegracao
                 code += GenetateRandomCode(numbers, 5) + "-";
                 code += GenetateRandomCode(letters, 1) + GenetateRandomCode(numbers, 1);
                 code += GenetateRandomCode(letters, 1) + GenetateRandomCode(numbers, 1);
-            } while (RetrieveOpportunityCode(service, code));            
-            return code;            
+            } while (RetrieveOpportunityCode(service, code));
+            return code;
         }
 
         private static string GenetateRandomCode(string charSet, int length)
@@ -59,25 +49,8 @@ namespace PluginIntegracao
             QueryExpression query = new QueryExpression("opportunity");
             query.ColumnSet.AddColumns("jrcv_codigodaoportunidade");
             query.Criteria.AddCondition("jrcv_codigodaoportunidade", ConditionOperator.Equal, code);
-            return service.RetrieveMultiple(query).TotalRecordCount >0 ? true : false;
+            return service.RetrieveMultiple(query).TotalRecordCount > 0 ? true : false;
         }
 
-        private static Entity GetOpportunityEntity(IPluginExecutionContext context)
-        {
-            Entity opportunity = new Entity();
-
-            if (context.MessageName == "Create" || context.MessageName == "Update")
-            {
-                opportunity = (Entity)context.InputParameters["Target"];
-            }
-            else
-            {
-                if (context.MessageName == "Delete")
-                {
-                    opportunity = (Entity)context.PreEntityImages["PreImage"];
-                }
-            }
-            return opportunity;
-        }
     }
 }
