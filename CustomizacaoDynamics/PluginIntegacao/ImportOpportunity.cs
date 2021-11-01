@@ -237,18 +237,17 @@ namespace PluginIntegracao
             }
 
             string[] contactColumns = { "contactid", "fullname", "jrcv_cpf" };
-            EntityCollection contactId = RetrieveAccountAndOpportunityName("contact", contact.Id, "contactid", service, contactColumns);
+            EntityCollection contactId = RetrieveAccountAndOpportunityName("contact", (Guid) contact.Id, "contactid", service, contactColumns);
             if (contactId.Entities.Count() == 0)
             {
-                contactId = RetrieveAccountAndOpportunityName("contact", contact.Id, "contactid", this.Service, contactColumns);
+                contactId = RetrieveAccountAndOpportunityName("contact", (Guid) contact.Id, "contactid", this.Service, contactColumns);
                 service.Create(contactId[0]);
             }
             else
             {
                 opportunityInDynamics2["parentcontactid"] = new EntityReference("contact", (Guid) contactId[0].Id);
-
             }
-
+            
             return opportunityInDynamics2;
         }
 
