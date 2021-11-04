@@ -141,23 +141,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountCustom.cs" />
-    <Compile Include="OpportunityDisabled.cs" />
-    <Compile Include="ProductDisabled.cs" />
+    <Compile Include="Account\CheckDuplicates.cs" />
+    <Compile Include="Contact\CheckDuplicateCpf.cs" />
+    <Compile Include="Notification\WebServices.cs" />
+    <Compile Include="Opportunity\BlockUpdate.cs" />
+    <Compile Include="Opportunity\CreateNotification.cs" />
+    <Compile Include="Opportunity\OpportunityDisabled.cs" />
+    <Compile Include="Product\ProductDisabled.cs" />
     <Compile Include="ConnectionFactory.cs" />
-    <Compile Include="ContactCustom.cs" />
-    <Compile Include="ImportOpportunity.cs" />
+    <Compile Include="Opportunity\ImportOpportunity.cs" />
     <Compile Include="NotificacaoCustom.cs" />
-    <Compile Include="OpportunityCustom.cs" />
+    <Compile Include="Opportunity\OpportunityCustom.cs" />
     <Compile Include="PluginImplementation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UpdateProduct.cs" />
+    <Compile Include="Product\UpdateProduct.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="KeyFile.snk" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

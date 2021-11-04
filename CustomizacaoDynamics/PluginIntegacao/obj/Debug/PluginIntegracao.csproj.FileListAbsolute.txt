@@ -9,3 +9,4 @@ C:\desenvolvimento\TCCFyi\CustomizacaoDynamics\PluginIntegacao\obj\Debug\PluginI
 C:\desenvolvimento\TCCFyi\CustomizacaoDynamics\PluginIntegacao\obj\Debug\PluginIntegracao.csproj.CopyComplete
 C:\desenvolvimento\TCCFyi\CustomizacaoDynamics\PluginIntegacao\obj\Debug\PluginIntegracao.dll
 C:\desenvolvimento\TCCFyi\CustomizacaoDynamics\PluginIntegacao\obj\Debug\PluginIntegracao.pdb
+C:\desenvolvimento\TCCFyi\CustomizacaoDynamics\PluginIntegacao\obj\Debug\PluginIntegracao.csprojAssemblyReference.cache

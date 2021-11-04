@@ -70,6 +70,8 @@
     <Content Include="JS\AccountCustom.js" />
     <Content Include="JS\ContactCustom.js" />
     <Content Include="JS\Custom.js" />
+    <Content Include="JS\OpportunityDisabled.js" />
+    <Content Include="JS\ProductDisabled.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

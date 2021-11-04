@@ -119,6 +119,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interface\IPadraoDeMetodos.cs" />
+    <Compile Include="Model\Concorrente.cs" />
+    <Compile Include="Model\Contas.cs" />
+    <Compile Include="Model\Contatos.cs" />
+    <Compile Include="Model\Fatura.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -126,9 +131,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\PluginIntegacao\PluginIntegracao.csproj">
       <Project>{4b596341-a2a8-46aa-be8a-78b3a530957a}</Project>
